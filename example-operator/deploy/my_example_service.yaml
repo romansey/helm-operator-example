@@ -1,0 +1,8 @@
+apiVersion: example.org/v1alpha1
+kind: ExampleService
+metadata:
+  name: my-example-service
+spec:
+  response: "Response from custom resource"
+  service:
+    name: examplesrv

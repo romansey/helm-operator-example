@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  {{ if .Values.service.name }}
+  name: "{{ .Values.service.name }}"
+  {{ else }}
+  name: "{{ .Release.Name }}"
+  {{ end }}
+  labels:
+    "app.kubernetes.io/name": "{{ .Release.Name }}"
+    "helm.sh/chart": "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    "app.kubernetes.io/managed-by": "{{ .Release.Service }}"
+    "app.kubernetes.io/instance": "{{ .Release.Name }}"
+spec:
+  selector:
+    "app.kubernetes.io/name": "{{ .Release.Name }}"
+  type: "{{ .Values.service.type }}"
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080

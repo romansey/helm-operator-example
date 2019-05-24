@@ -1,0 +1,5 @@
+---
+- version: v1alpha1
+  group: example.org
+  kind: ExampleService
+  chart: /opt/helm/helm-charts/example-service

@@ -1,0 +1,19 @@
+apiVersion: example.org/v1alpha1
+kind: ExampleService
+metadata:
+  name: example-exampleservice
+spec:
+  # Default values copied from <project_dir>/helm-charts/example-service/values.yaml
+  
+  image: romansey/example-service:latest
+  response: "Chart Default Response"
+  service:
+    name:
+    type: ClusterIP
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "50m"
+    limits:
+      memory: "128Mi"
+      cpu: "500m"
